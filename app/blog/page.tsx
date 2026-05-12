@@ -41,9 +41,9 @@ export default function BlogPage() {
             Open notebook
           </p>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-[#334033]">
-            I use this space for observations that sit between the garden and
-            the code editor: what living systems ask for, what software can
-            clarify, and where a thoughtful tool can stay out of the way.
+            This is where I think out loud about the overlap between software
+            and growing things: garden observations, project reflections, and
+            ideas for tools that help people make better decisions with plants.
           </p>
         </div>
 
