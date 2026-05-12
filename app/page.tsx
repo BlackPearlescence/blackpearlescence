@@ -1,35 +1,33 @@
 import Image from "next/image";
 import { NavigationBar } from "./components/NavigationBar";
+import { ProjectCard, type ProjectCardProps } from "./components/ProjectCard";
 
-const focusAreas = [
-  "Planning tools for seed starting, crop rotation, and seasonal workflows",
-  "Field notes, reminders, and lightweight records that growers will actually use",
-  "Clear dashboards for weather, soil, harvests, inventory, and daily decisions",
-];
-
-const projects = [
+const portfolioProjects: ProjectCardProps[] = [
   {
-    title: "Grow Log Systems",
+    title: "Ciderina",
+    eyebrow: "Featured project",
+    summary:
+      "Ciderina is a horticulture-forward cider planning app for growers and hobbyists. It allows users to explore apple cultivars, build weighted blends, understand estimated cider traits, plan preparation and fermentation steps, and finally, generate a practical cider report.",
     description:
-      "Structured journals that turn observations, photos, and tasks into practical growing history.",
+      "Hobbyist cidermakers often have access to apple varieties but lack an easy way to understand how these cultivars work together in a blend. Ciderina connects apple traits, fruit chemistry, blend composition, and process decisions into one guided workflow.",
+    projectUrl: "https://cider-maker.vercel.app/",
+    images: [
+      {
+        src: "/portfolio/cider-project-flow.png",
+        alt: "Project screenshot showing a dark interface with a visual blend process workflow",
+      },
+      {
+        src: "/portfolio/cider-project-apples.png",
+        alt: "Project screenshot showing apple variety cards in a dark botanical interface",
+      },
+    ],
+    details: [
+      "Placeholder detail: describe the core feature or workflow this project supports.",
+      "Placeholder detail: list the main technologies, framework, or architecture decisions.",
+      "Placeholder detail: explain what makes the project useful, unusual, or tied to horticulture.",
+    ],
+    tags: ["Next.js", "TypeScript", "Horticulture"],
   },
-  {
-    title: "Nursery Operations",
-    description:
-      "Interfaces for propagation, stock tracking, batch status, and repeatable care routines.",
-  },
-  {
-    title: "Garden Intelligence",
-    description:
-      "Small automations that connect sensors, weather, and schedules without burying people in data.",
-  },
-];
-
-const principles = [
-  "Human-scale software",
-  "Calm interfaces",
-  "Useful data",
-  "Season-aware systems",
 ];
 
 const links = [
@@ -66,9 +64,11 @@ export default function Home() {
                 Thoughtful tools for growers and gardeners.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-[#3e4a3d] sm:text-xl">
-                I build practical software for people working with plants:
-                systems that make planning easier, records clearer, and daily
-                growing decisions less scattered.
+                I’m a full-stack engineer with a background in computer science
+                and a deep interest in gardening, horticulture, and food
+                systems. I enjoy building software that helps people make better
+                decisions around plants: what to grow, how to grow, and how to
+                turn raw information into useful action.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
@@ -85,17 +85,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 text-sm text-[#293529] sm:max-w-xl lg:justify-self-end">
-              {principles.map((principle) => (
-                <div
-                  key={principle}
-                  className="border border-[#d4d3c7]/80 bg-[#fffdf6]/75 px-4 py-4 backdrop-blur"
-                >
-                  {principle}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -104,21 +93,24 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.75fr_1fr]">
           <div>
             <p className="text-sm font-semibold tracking-[0.2em] text-[#667d2e] uppercase">
-              Repositioning
+              About Me
             </p>
             <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
-              From generic developer brand to a clear horticulture niche.
+              I want to bridge the gap between software and nature bringing
+              about a unity in which better decisions can be made for
+              horticulture.
             </h2>
           </div>
           <div className="grid gap-5">
-            {focusAreas.map((area) => (
-              <div
-                key={area}
-                className="border-t border-[#c9c8ba] pt-5 text-xl leading-8 text-[#334033]"
-              >
-                {area}
-              </div>
-            ))}
+            <div className="border border-[#c8cfb8] bg-[#fffdf6]/80 px-6 py-7 shadow-[0_18px_50px_rgba(54,67,39,0.12)] backdrop-blur sm:px-8">
+              <p className="mt-4 text-xl leading-8 text-[#334033]">
+                I have an enormous passion for gardening and in fact, the guava
+                tree you see above is my very own tree! I want to create tools
+                that make gardening approachable and easier for all walks of
+                life. What better way to use my knowledge of software and the
+                workflows behind it?
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -130,25 +122,17 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.2em] text-[#b7ca75] uppercase">
-              Portfolio direction
+              Featured work
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
-              The work should feel like it belongs in gardens, greenhouses,
-              nurseries, and small farms.
+              Projects that connect thoughtful software with plant-focused
+              decisions.
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {projects.map((project) => (
-              <article
-                key={project.title}
-                className="border-t border-[#65705f] pt-6"
-              >
-                <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="mt-4 leading-7 text-[#d8ddcf]">
-                  {project.description}
-                </p>
-              </article>
+          <div className="mt-12 grid gap-8">
+            {portfolioProjects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
             ))}
           </div>
         </div>
