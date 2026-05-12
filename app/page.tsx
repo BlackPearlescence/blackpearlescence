@@ -22,23 +22,28 @@ const portfolioProjects: ProjectCardProps[] = [
       },
     ],
     details: [
-      "Placeholder detail: describe the core feature or workflow this project supports.",
-      "Placeholder detail: list the main technologies, framework, or architecture decisions.",
-      "Placeholder detail: explain what makes the project useful, unusual, or tied to horticulture.",
+      "Searchable apple cultivar catalog",
+      "Advanced filtering by category, flavor class, Brix, pH, and tannin",
+      "Batch builder with selected apple varieties",
+      "Fermentation and cider planning",
     ],
     tags: ["Next.js", "TypeScript", "Horticulture"],
   },
 ];
 
 const links = [
-  { label: "Email", href: "mailto:hello@example.com" },
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  { label: "Email", href: "srogers138@gmail.com" },
+  { label: "GitHub", href: "https://github.com/blackpearlescence" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sani-rogers-b9a38425a/",
+  },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#182018]">
+      <NavigationBar />
       <section
         id="top"
         className="relative isolate flex min-h-[92vh] items-end overflow-hidden px-6 pb-10 pt-24 sm:px-10 lg:px-16"
@@ -53,7 +58,6 @@ export default function Home() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(247,245,239,0.97)_0%,rgba(247,245,239,0.86)_34%,rgba(247,245,239,0.34)_68%,rgba(24,32,24,0.18)_100%)]" />
 
-        <NavigationBar />
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-16">
           <div className="grid gap-10 pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.55fr)] lg:items-end">
             <div className="max-w-3xl">
@@ -172,6 +176,7 @@ export default function Home() {
               <a
                 key={link.label}
                 href={link.href}
+                target="_blank"
                 className="inline-flex h-11 items-center border border-[#aeb39f] bg-white/55 px-5 text-sm font-semibold text-[#182018] transition hover:border-[#667d2e] hover:bg-white"
               >
                 {link.label}
