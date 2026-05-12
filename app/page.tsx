@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { NavigationBar } from "./components/NavigationBar";
+import Link from "next/link";
+import { BlogPostCard } from "./components/BlogPostCard";
 import { ProjectCard, type ProjectCardProps } from "./components/ProjectCard";
+import { blogPosts } from "./lib/blogPosts";
 
 const portfolioProjects: ProjectCardProps[] = [
   {
@@ -43,7 +45,6 @@ const links = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#182018]">
-      <NavigationBar />
       <section
         id="top"
         className="relative isolate flex min-h-[92vh] items-end overflow-hidden px-6 pb-10 pt-24 sm:px-10 lg:px-16"
@@ -106,15 +107,13 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid gap-5">
-            <div className="border border-[#c8cfb8] bg-[#fffdf6]/80 px-6 py-7 shadow-[0_18px_50px_rgba(54,67,39,0.12)] backdrop-blur sm:px-8">
-              <p className="mt-4 text-xl leading-8 text-[#334033]">
-                I have an enormous passion for gardening and in fact, the guava
-                tree you see above is my very own tree! I want to create tools
-                that make gardening approachable and easier for all walks of
-                life. What better way to use my knowledge of software and the
-                workflows behind it?
-              </p>
-            </div>
+            <h3 className="mt-4 text-3xl leading-10 text-[#334033]">
+              I have an enormous passion for gardening and in fact, the guava
+              tree you see above is my very own tree! I want to create tools
+              that make gardening approachable and easier for all walks of life.
+              What better way to use my knowledge of software and the workflows
+              behind it?
+            </h3>
           </div>
         </div>
       </section>
@@ -142,19 +141,48 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-10 lg:px-16">
+      <section id="purpose" className="px-6 py-20 sm:px-10 lg:px-16">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
-            I care about the quiet parts of useful software: timing, context,
-            trust, and whether the tool still makes sense when someone has soil
-            on their hands.
+            My work sits at the intersection of practical web engineering and
+            domain-specific tools. I’m highly interested in applications that
+            combine structured data, planning workflows, visual interfaces, and
+            rule-based decision logic.
           </h2>
-          <p className="text-lg leading-8 text-[#485345]">
-            That lens changes the engineering choices. It favors resilient flows
-            over flashy demos, thoughtful defaults over clutter, and data that
-            helps people notice what is changing in the living systems they
-            tend.
+          <p className="text-3xl font-semibold leading-10 text-[#485345]">
+            I’m looking for software engineering roles where I can build useful,
+            well-structured applications and keep growing as an engineer. I’m
+            especially interested in teams working on developer tools,
+            data-heavy products, climate, agriculture, food systems, education,
+            or practical workflow software.
           </p>
+        </div>
+      </section>
+
+      <section id="blog" className="bg-[#eef0e3] px-6 py-20 sm:px-10 lg:px-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold tracking-[0.2em] text-[#667d2e] uppercase">
+                Blog
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
+                Field notes on software, gardening, and useful tools.
+              </h2>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex h-12 items-center justify-center border border-[#9ea88d] bg-[#fffdf6] px-5 text-sm font-semibold text-[#182018] transition hover:border-[#667d2e] hover:bg-white"
+            >
+              View all posts
+            </Link>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {blogPosts.slice(0, 3).map((post) => (
+              <BlogPostCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -168,7 +196,8 @@ export default function Home() {
               Links
             </p>
             <h2 className="mt-3 text-3xl font-semibold">
-              Find me around the web.
+              Built with care, curiosity, and an unreasonable interest in
+              plants.
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
