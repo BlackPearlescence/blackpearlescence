@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     slug: "software-that-respects-the-garden",
     title: "Software that respects the garden",
     excerpt:
-      "A placeholder field note about designing tools that fit the slower, messier rhythm of growing things.",
+      "Why code is perfect for navigating the beautiful but complex field that is gardening.",
     date: "May 12, 2026",
     readTime: "4 min read",
     category: "Field note",
